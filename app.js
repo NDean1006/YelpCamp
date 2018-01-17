@@ -9,6 +9,7 @@ const   express                 = require("express"),
         flash                   = require("connect-flash"),
         Campground              = require("./models/campground"),
         Comment                 = require("./models/comment"),
+        
         passport                = require("passport"),
         LocalStrategy           = require("passport-local"),
         methodOverride          = require("method-override"),
@@ -36,10 +37,12 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname +"/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+
 //===============================================================
 // SEED DB 
 //===============================================================
 // seedDB();
+
 //===============================================================
 // AUTH DEPEDENCIES 
 //===============================================================
@@ -48,6 +51,14 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+app.locals.moment = require('moment');
+
+//===============================================================
+// PASSPORT CONFIG
+//===============================================================
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
