@@ -9,7 +9,6 @@ const   express                 = require("express"),
         flash                   = require("connect-flash"),
         Campground              = require("./models/campground"),
         Comment                 = require("./models/comment"),
-        
         passport                = require("passport"),
         LocalStrategy           = require("passport-local"),
         methodOverride          = require("method-override"),
